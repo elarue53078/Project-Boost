@@ -333,6 +333,75 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 26d380e58e30f470cb2dd70032a4ad0b, type: 3}
+--- !u!1001 &2247124496351885291
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 5960318117675017701, guid: 788b53ffff1694d8f9d72bcf9f2a93bf,
+        type: 3}
+      propertyPath: m_Name
+      value: Rocket Ship
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426551099968027596, guid: 788b53ffff1694d8f9d72bcf9f2a93bf,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426551099968027596, guid: 788b53ffff1694d8f9d72bcf9f2a93bf,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 1.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426551099968027596, guid: 788b53ffff1694d8f9d72bcf9f2a93bf,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426551099968027596, guid: 788b53ffff1694d8f9d72bcf9f2a93bf,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426551099968027596, guid: 788b53ffff1694d8f9d72bcf9f2a93bf,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426551099968027596, guid: 788b53ffff1694d8f9d72bcf9f2a93bf,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426551099968027596, guid: 788b53ffff1694d8f9d72bcf9f2a93bf,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426551099968027596, guid: 788b53ffff1694d8f9d72bcf9f2a93bf,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426551099968027596, guid: 788b53ffff1694d8f9d72bcf9f2a93bf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426551099968027596, guid: 788b53ffff1694d8f9d72bcf9f2a93bf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2426551099968027596, guid: 788b53ffff1694d8f9d72bcf9f2a93bf,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 788b53ffff1694d8f9d72bcf9f2a93bf, type: 3}
 --- !u!1001 &2776216962708964817
 PrefabInstance:
   m_ObjectHideFlags: 0
