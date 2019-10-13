@@ -7,6 +7,8 @@ public class Rocket : MonoBehaviour
 {
     Rigidbody rocketRB;
     AudioSource rocketThrust;
+    [SerializeField] float mainThrust = 100f;
+    [SerializeField] float rcsThrust = 100f;
 
     // Start is called before the first frame update
     void Start()
@@ -24,10 +26,12 @@ public class Rocket : MonoBehaviour
 
     private void Thrust()
     {
+        float thrustSpeed = mainThrust * Time.deltaTime;
+
         if (Input.GetKey(KeyCode.Space)) // can thrust while rotating
         {
             print("Thrusting.");
-            rocketRB.AddRelativeForce(Vector3.up);
+            rocketRB.AddRelativeForce(Vector3.up * thrustSpeed);
             if (!rocketThrust.isPlaying) // no layering
             {
                 rocketThrust.Play();
@@ -42,16 +46,17 @@ public class Rocket : MonoBehaviour
     private void Rotate()
     {
         rocketRB.freezeRotation = true;
+        float rotationSpeed = rcsThrust * Time.deltaTime;
 
         if (Input.GetKey(KeyCode.A))
         {
             print("Rotating left");
-            transform.Rotate(Vector3.forward);
+            transform.Rotate(Vector3.forward * rotationSpeed);
         }
         else if (Input.GetKey(KeyCode.D))
         {
             print("Rotating right.");
-            transform.Rotate(-Vector3.forward);
+            transform.Rotate(-Vector3.forward * rotationSpeed);
         }
 
         rocketRB.freezeRotation = false;
