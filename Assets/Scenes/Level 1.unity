@@ -207,6 +207,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Landing Pad
       objectReference: {fileID: 0}
+    - target: {fileID: 1564601338447437944, guid: b8c7e498b2025485fb97461b8d0e5d03,
+        type: 3}
+      propertyPath: m_TagString
+      value: Friendly
+      objectReference: {fileID: 0}
     - target: {fileID: 3007692621249260049, guid: b8c7e498b2025485fb97461b8d0e5d03,
         type: 3}
       propertyPath: m_LocalPosition.x
