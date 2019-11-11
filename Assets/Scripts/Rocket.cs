@@ -67,12 +67,12 @@ public class Rocket : MonoBehaviour
         if (Input.GetKey(KeyCode.A))
         {
             print("Rotating left");
-            transform.Rotate(Vector3.forward * rotationSpeed);
+            transform.Rotate(-Vector3.forward * rotationSpeed);
         }
         else if (Input.GetKey(KeyCode.D))
         {
             print("Rotating right.");
-            transform.Rotate(-Vector3.forward * rotationSpeed);
+            transform.Rotate(Vector3.forward * rotationSpeed);
         }
 
         rocketRB.freezeRotation = false;
