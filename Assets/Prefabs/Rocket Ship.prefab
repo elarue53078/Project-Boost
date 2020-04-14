@@ -324,7 +324,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 0
+  m_Constraints: 56
   m_CollisionDetection: 0
 --- !u!114 &510072204
 MonoBehaviour:
@@ -338,6 +338,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609716a3dbad64541a577e198b941e74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  mainThrust: 100
+  rcsThrust: 100
+  mainEngine: {fileID: 8300000, guid: 5463ef305e5c446319f8a52addc7ecc4, type: 3}
+  rocketExplosion: {fileID: 8300000, guid: ef8bd2c2eed704effac080f27cb6f1ee, type: 3}
+  levelLoad: {fileID: 8300000, guid: 9ca927dca48ae477f89bf938b755a941, type: 3}
 --- !u!82 &1677318633983644527
 AudioSource:
   m_ObjectHideFlags: 0
