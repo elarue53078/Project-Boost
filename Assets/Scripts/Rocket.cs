@@ -10,9 +10,15 @@ public class Rocket : MonoBehaviour
     AudioSource rocketAudio;
     [SerializeField] float mainThrust = 100f;
     [SerializeField] float rcsThrust = 100f;
+    [SerializeField] float levelLoadDelay = 2f;
+
     [SerializeField] AudioClip mainEngine;
     [SerializeField] AudioClip rocketExplosion;
     [SerializeField] AudioClip levelLoad;
+
+    [SerializeField] ParticleSystem engineExhaust;
+    [SerializeField] ParticleSystem debris;
+    [SerializeField] ParticleSystem successSparkles;
 
     enum State {Alive, Dying, Transcending}
     State state = State.Alive;
@@ -61,7 +67,8 @@ public class Rocket : MonoBehaviour
         state = State.Dying;
         rocketAudio.Stop();
         rocketAudio.PlayOneShot(rocketExplosion);
-        Invoke("PlayerDie", 2f); //parameterize time
+        debris.Play();
+        Invoke("PlayerDie", levelLoadDelay); //parameterize time
     }
 
     private void StartSuccess()
@@ -70,7 +77,8 @@ public class Rocket : MonoBehaviour
         state = State.Transcending;
         rocketAudio.Stop();
         rocketAudio.PlayOneShot(levelLoad);
-        Invoke("LoadNextScene", 1f); //parameterize time
+        successSparkles.Play();
+        Invoke("LoadNextScene", levelLoadDelay); //parameterize time
     }
 
     private void PlayerDie()
@@ -94,17 +102,19 @@ public class Rocket : MonoBehaviour
         else
         {
             rocketAudio.Stop();
+            engineExhaust.Stop();
         }
     }
 
     private void ApplyThrust(float thrustSpeed)
     {
         print("Thrusting.");
-        rocketRB.AddRelativeForce(Vector3.up * thrustSpeed);
+        rocketRB.AddRelativeForce(Vector3.up * thrustSpeed * Time.deltaTime);
         if (!rocketAudio.isPlaying) // no layering
         {
             rocketAudio.PlayOneShot(mainEngine);
         }
+        engineExhaust.Play();
     }
 
     private void RespondToRotateInput()
