@@ -8,7 +8,7 @@ public class Rocket : MonoBehaviour
 {
     Rigidbody rocketRB;
     AudioSource rocketAudio;
-    [SerializeField] float mainThrust = 100f;
+    [SerializeField] float mainThrust = 1000f;
     [SerializeField] float rcsThrust = 100f;
     [SerializeField] float levelLoadDelay = 2f;
 
@@ -22,6 +22,8 @@ public class Rocket : MonoBehaviour
 
     enum State {Alive, Dying, Transcending}
     State state = State.Alive;
+
+    bool collisionsEnabled = true;
 
     // Start is called before the first frame update
     void Start()
@@ -37,6 +39,19 @@ public class Rocket : MonoBehaviour
         {
             RespondToThrustInput();
             RespondToRotateInput();
+        }
+        // if(Debug.isDebugBuild) { RespondToDebug(); }
+    }
+
+    private void RespondToDebug()
+    {
+        if (Input.GetKeyDown(KeyCode.L))
+        {
+            LoadNextScene();
+        }
+        if (Input.GetKeyDown(KeyCode.C))
+        {
+            collisionsEnabled = !collisionsEnabled;
         }
     }
 
@@ -88,6 +103,8 @@ public class Rocket : MonoBehaviour
 
     private void LoadNextScene()
     {
+        int currentSceneIndex = SceneManager.GetActiveScene().buildIndex;
+        int nextSceneIndex = currentSceneIndex + 1 == SceneManager.sceneCountInBuildSettings ? 0 : currentSceneIndex + 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 
@@ -101,15 +118,20 @@ public class Rocket : MonoBehaviour
         }
         else
         {
-            rocketAudio.Stop();
-            engineExhaust.Stop();
+            StopApplyingThrust();
         }
+    }
+
+    private void StopApplyingThrust()
+    {
+        rocketAudio.Stop();
+        engineExhaust.Stop();
     }
 
     private void ApplyThrust(float thrustSpeed)
     {
         print("Thrusting.");
-        rocketRB.AddRelativeForce(Vector3.up * thrustSpeed * Time.deltaTime);
+        rocketRB.AddRelativeForce(Vector3.up * thrustSpeed);
         if (!rocketAudio.isPlaying) // no layering
         {
             rocketAudio.PlayOneShot(mainEngine);
